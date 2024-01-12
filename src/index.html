@@ -3,19 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Pure Jsx</title>
   </head>
   <body>
     <div id="root"></div>
     <script src="./react.development.js"></script>
     <script src="./react-dom.development.js"></script>
-    <!-- AFTER SOURCING THE REACT AND REACTDOM, YOU CAN TYPE "React" & "ReactDOM" in the browser devtool console and see the react and reactdom available thats cool (; -->
+    <!-- AFTER SOURCING THE REACT AND REACTDOM, YOU CAN TYPE "React" & "ReactDOM" in the browser devtool console and see the react and reactdom available... thats cool (; -->
     <script>
       const App = () => {
         return React.createElement(
           "section",
           { id: "first-sec" }, // PUT YOUR ATTRIBUTES HERE
-          React.createElement("p", {}, "hello world i am coming (;")
+          React.createElement("p", {}, "Hello world I am coming (;")
         );
       };
 
