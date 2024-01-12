@@ -11,7 +11,7 @@ const App = () => {
     React.createElement(
       "p",
       { id: "greeting" }, // PUT YOUR ATTRIBUTES IN THIS SECTION
-      "Hello world I am coming (;"
+      "Hello world I am coming (;",
     ),
     React.createElement("p", {}, "My some friends name are:"),
     React.createElement(Friends, { name: "Pedram", age: 27, city: "LA" }),

@@ -2,6 +2,9 @@
   "name": "pure-jsx",
   "version": "1.0.0",
   "description": "the goal is to learn the beneath react",
+  "scripts": {
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\""
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/pdrm26/pure-jsx.git"
