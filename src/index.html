@@ -10,5 +10,23 @@
     <script src="./react.development.js"></script>
     <script src="./react-dom.development.js"></script>
     <!-- AFTER SOURCING THE REACT AND REACTDOM, YOU CAN TYPE "React" & "ReactDOM" in the browser devtool console and see the react and reactdom available thats cool (; -->
+    <script>
+      const App = () => {
+        return React.createElement(
+          "section",
+          { id: "first-sec" }, // PUT YOUR ATTRIBUTES HERE
+          React.createElement("p", {}, "hello world i am coming (;")
+        );
+      };
+
+      // NOTE: ASA = Automatically Semicolon Assertion ==> if you write a code something like:
+      // let y = ['a', 'b']
+      // [1].map(x => x)
+      // the compiler think those two lines are with each other like this "let y = ['a', 'b'][1].map(x => x)" and compile them with each other cause we dont use semicolon in the right place.
+
+      const container = document.getElementById("root");
+      const root = ReactDOM.createRoot(container);
+      root.render(React.createElement(App));
+    </script>
   </body>
 </html>
