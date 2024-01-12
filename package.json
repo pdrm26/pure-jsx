@@ -1,0 +1,18 @@
+{
+  "name": "pure-jsx",
+  "version": "1.0.0",
+  "description": "the goal is to learn the beneath react",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/pdrm26/pure-jsx.git"
+  },
+  "author": "Pedram Baradarian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pdrm26/pure-jsx/issues"
+  },
+  "homepage": "https://github.com/pdrm26/pure-jsx#readme",
+  "devDependencies": {
+    "prettier": "^3.2.1"
+  }
+}
