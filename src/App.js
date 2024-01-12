@@ -1,3 +1,6 @@
+import React from "react";
+import { createRoot } from "react-dom/client";
+
 const Friends = (props) => {
   return React.createElement("ul", {}, [
     React.createElement("li", {}, props.name),
@@ -24,7 +27,7 @@ const App = () => {
 };
 
 const container = document.getElementById("root");
-const root = ReactDOM.createRoot(container);
+const root = createRoot(container);
 root.render(React.createElement(App));
 
 // NOTE: ASA = Automatically Semicolon Assertion ==> if you write a code something like:
