@@ -1,8 +1,25 @@
+const Friends = (props) => {
+  return React.createElement("ul", {}, [
+    React.createElement("li", {}, props.name),
+    React.createElement("li", {}, props.age),
+    React.createElement("li", {}, props.city),
+  ]);
+};
+
 const App = () => {
   return React.createElement(
     "section",
     { id: "first-sec" }, // PUT YOUR ATTRIBUTES HERE
-    React.createElement("p", {}, "Hello world I am coming (;")
+    [
+      React.createElement("p", {}, "Hello world I am coming (;"),
+      React.createElement("p", {}, "My some friends name are:"),
+      React.createElement(Friends, { name: "Pedram", age: 27, city: "LA" }),
+      React.createElement(Friends, {
+        name: "Lilo",
+        age: 22,
+        city: "San Francisco",
+      }),
+    ]
   );
 };
 
