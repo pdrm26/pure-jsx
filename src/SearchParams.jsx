@@ -16,7 +16,9 @@ const SearchParams = () => {
   }, []);
 
   const requestPets = async () => {
-    const res = await fetch(`example/${animal}`);
+    const res = await fetch(
+      `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`,
+    );
     const json = await res.json();
 
     setPets(json.pets);
@@ -26,7 +28,6 @@ const SearchParams = () => {
     e.target.value();
     requestPets();
   };
-
 
   return (
     <div className="search-params">
