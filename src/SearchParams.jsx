@@ -15,23 +15,18 @@ const SearchParams = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const requestPets = async () => {
+  async function requestPets() {
     const res = await fetch(
       `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`,
     );
     const json = await res.json();
 
     setPets(json.pets);
-  };
-
-  const handleForm = (e) => {
-    e.target.value();
-    requestPets();
-  };
+  }
 
   return (
     <div className="search-params">
-      <form onSubmit={handleForm}>
+      <form>
         <label htmlFor="location">
           Location
           <input
