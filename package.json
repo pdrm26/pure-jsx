@@ -22,6 +22,8 @@
   },
   "homepage": "https://github.com/pdrm26/pure-jsx#readme",
   "devDependencies": {
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.17",
     "eslint": "^8.56.0",
@@ -34,6 +36,7 @@
     "prettier": "^3.2.1",
     "prettier-plugin-tailwindcss": "^0.5.11",
     "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3",
     "vite": "^5.0.11"
   },
   "dependencies": {
