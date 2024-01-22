@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { Suspense, lazy, useState } from "react";
 import Loader from "./Loader";
 import AdoptedPetContext from "./AdoptedPetContext";
+import DetailsErrorBoundary from "./Details";
 
 const Details = lazy(() => import("./Details"));
 const SearchParams = lazy(() => import("./SearchParams"));
@@ -29,7 +30,7 @@ const App = () => {
                 <Link to="/">Adopt Me!</Link>
               </header>
               <Routes>
-                <Route path="/details/:id" element={<Details />} />
+                <Route path="/details/:id" element={<DetailsErrorBoundary />} />
                 <Route path="/" element={<SearchParams />} />
               </Routes>
             </Suspense>
