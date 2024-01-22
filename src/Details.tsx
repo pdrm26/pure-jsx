@@ -5,11 +5,18 @@ import fetchPet from "./fetchPet";
 import Carousel from "./Carousel";
 import { useQuery } from "react-query";
 import Loader from "./Loader";
+import ErrorBoundary from "./ErrorBoundary";
 
 const Modal = lazy(() => import("./Modal"));
 
-export default function Details() {
+function Details() {
   const { id } = useParams();
+
+  if (!id)
+    throw new Error(
+      "Why did you not give me an id?!!!! I wanted an id. I have no id",
+    );
+
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
   const { isLoading, data } = useQuery(["details", id], fetchPet);
@@ -19,7 +26,9 @@ export default function Details() {
     return <Loader />;
   }
 
-  const pet = data.pets[0];
+  const pet = data?.pets[0];
+
+  if (!pet) throw new Error("no pet lol");
 
   return (
     <div className="details">
@@ -49,5 +58,13 @@ export default function Details() {
         ) : null}
       </div>
     </div>
+  );
+}
+
+export default function DetailsErrorBoundary() {
+  return (
+    <ErrorBoundary>
+      <Details />
+    </ErrorBoundary>
   );
 }

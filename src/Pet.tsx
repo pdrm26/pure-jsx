@@ -1,4 +1,15 @@
-const Pet = (props) => {
+import { Pet } from "./APIResponsesTypes";
+
+interface Props {
+  name: string;
+  animal: string;
+  breed: string;
+  images: string[];
+  location: string;
+  id: number;
+}
+
+const Pet = (props: Props) => {
   const { name, animal, breed, images, location, id } = props;
 
   let hero = "http://pets-images.dev-apis.com/pets/none.jpg";

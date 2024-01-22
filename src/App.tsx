@@ -5,6 +5,7 @@ import { Suspense, lazy, useState } from "react";
 import Loader from "./Loader";
 import AdoptedPetContext from "./AdoptedPetContext";
 import DetailsErrorBoundary from "./Details";
+import { Pet } from "./APIResponsesTypes";
 
 const Details = lazy(() => import("./Details"));
 const SearchParams = lazy(() => import("./SearchParams"));
@@ -19,7 +20,7 @@ const queryClient = new QueryClient({
 });
 
 const App = () => {
-  const adoptedPet = useState(null);
+  const adoptedPet = useState(null as Pet | null);
   return (
     <div>
       <BrowserRouter>
@@ -42,5 +43,7 @@ const App = () => {
 };
 
 const container = document.getElementById("root");
+if (!container) throw new Error("no container to rander to");
+
 const root = createRoot(container);
 root.render(<App />);

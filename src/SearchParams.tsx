@@ -4,12 +4,13 @@ import Results from "./Results";
 import { useQuery } from "react-query";
 import fetchSearch from "./fetchSearch";
 import AdoptedPetContext from "./AdoptedPetContext";
-const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
+import { Animal } from "./APIResponsesTypes";
+const ANIMALS: Animal[] = ["bird", "cat", "dog", "rabbit", "reptile"];
 
 const SearchParams = () => {
   const [requestParams, setRequestParams] = useState({
     location: "",
-    animal: "",
+    animal: "" as Animal,
     breed: "",
   });
   const [adoptedPet] = useContext(AdoptedPetContext);
@@ -29,12 +30,10 @@ const SearchParams = () => {
     const formData = new FormData(e.target);
 
     const obj = {
-      location: formData.get("location") ?? "",
-      animal: formData.get("animal") ?? "",
-      breed: formData.get("breed") ?? "",
+      location: formData.get("location")?.toString() ?? "",
+      animal: (formData.get("animal")?.toString() as Animal) ?? ("" as Animal),
+      breed: formData.get("breed")?.toString() ?? "",
     };
-
-    console.log(obj);
 
     setRequestParams(obj);
   };
