@@ -9,7 +9,8 @@
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet",
     "lint:debug": "eslint \"src/**/*.{js,jsx,ts,tsx}\" -- --debug",
-    "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix"
+    "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix",
+    "typecheck": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
