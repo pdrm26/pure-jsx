@@ -1,12 +1,20 @@
-import { useQuery } from "react-query";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useContext, useState, lazy } from "react";
+import AdoptedPetContext from "./AdoptedPetContext";
 import fetchPet from "./fetchPet";
 import Carousel from "./Carousel";
+import { useQuery } from "react-query";
 import Loader from "./Loader";
 
-const Details = () => {
+const Modal = lazy(() => import("./Modal"));
+
+export default function Details() {
   const { id } = useParams();
+  const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
   const { isLoading, data } = useQuery(["details", id], fetchPet);
+  // eslint-disable-next-line no-unused-vars
+  const [_, setAdoptedPet] = useContext(AdoptedPetContext);
 
   if (isLoading) {
     return <Loader />;
@@ -20,11 +28,27 @@ const Details = () => {
       <div>
         <h1>{pet.name}</h1>
         <h2>{`${pet.animal} — ${pet.breed} — ${pet.city}, ${pet.state}`}</h2>
-        <button>Adopt {pet.name}</button>
+        <button onClick={() => setShowModal(true)}>Adopt {pet.name}</button>
         <p>{pet.description}</p>
+        {showModal ? (
+          <Modal>
+            <div>
+              <h1>Would you like to adopt {pet.name}?</h1>
+              <div className="buttons">
+                <button
+                  onClick={() => {
+                    setAdoptedPet(pet);
+                    navigate("/");
+                  }}
+                >
+                  Yes
+                </button>
+                <button onClick={() => setShowModal(false)}>No</button>
+              </div>
+            </div>
+          </Modal>
+        ) : null}
       </div>
     </div>
   );
-};
-
-export default Details;
+}

@@ -1,8 +1,9 @@
-import { useDeferredValue, useMemo, useState } from "react";
+import { useContext, useDeferredValue, useMemo, useState } from "react";
 import useBreedList from "./useBreedList";
 import Results from "./Results";
 import { useQuery } from "react-query";
 import fetchSearch from "./fetchSearch";
+import AdoptedPetContext from "./AdoptedPetContext";
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
 const SearchParams = () => {
@@ -11,6 +12,7 @@ const SearchParams = () => {
     animal: "",
     breed: "",
   });
+  const [adoptedPet] = useContext(AdoptedPetContext);
   const [animal, setAnimal] = useState("");
   const [breeds] = useBreedList(animal);
 
@@ -40,6 +42,11 @@ const SearchParams = () => {
   return (
     <div className="search-params">
       <form onSubmit={handleForm}>
+        {adoptedPet ? (
+          <div className="pet image-container">
+            <img src={adoptedPet.images[0]} alt={adoptedPet.name} />
+          </div>
+        ) : null}
         <label htmlFor="location">
           Location
           <input id="location" name="location" placeholder="Location" />
