@@ -13,8 +13,7 @@ export default function Details() {
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
   const { isLoading, data } = useQuery(["details", id], fetchPet);
-  // eslint-disable-next-line no-unused-vars
-  const [_, setAdoptedPet] = useContext(AdoptedPetContext);
+  const [, setAdoptedPet] = useContext(AdoptedPetContext);
 
   if (isLoading) {
     return <Loader />;

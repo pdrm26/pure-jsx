@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode, useEffect, useRef } from "react";
+import { ReactElement, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 
 const Modal = ({ children }: { children: ReactElement }) => {
