@@ -10,6 +10,7 @@ test("lets users click on thumbnails to make them the hero", async () => {
 
   for (const [index, image] of images.entries()) {
     const thumb = await carousel.findByTestId(`thumbnail${index}`);
+    //TODO: find how can you solve this challenge!!!
     await thumb.click();
     expect(hero.src).toContain(image);
     expect(Array.from(thumb.classList)).toContain("active");
