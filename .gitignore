@@ -1,5 +1,6 @@
 node_modules/
 dist/
+src/coverage/
 .env
 .DS_Store
 .vscode/
